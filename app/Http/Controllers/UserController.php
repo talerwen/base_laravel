@@ -19,8 +19,17 @@ class UserController extends Controller{
         foreach($users as $user){
             echo $user->name.PHP_EOL;
         }
-        $insert_re = DB::insert('insert into users (name,age) value(?,?)',['李四',165165165]);
-        // insert_re为true或者false
+//        $insert_re = DB::insert('insert into users (name,age) value(?,?)',['李四',20]);
+        // $insert_re为true或者false
         // dump($insert_re);
+        $update_re = DB::update('update users set name = "王五" where id > ?',[1]);
+        // $update_re为更新的行数
+//        var_dump($update_re);
+        $delete_re = DB::delete('delete from users where id = ?',[1]);
+        // $delete_re为删除的行数
+//        var_dump($delete_re);
+        // 基本的操作,不需要返回值
+//        DB::statement('drop table users');
+
     }
 }
