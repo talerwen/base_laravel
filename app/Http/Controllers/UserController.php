@@ -97,5 +97,72 @@ class UserController extends Controller{
         // distinct只能作用在只查询单个元素时起作用
 //        $users = DB::table('users')->select('age','name')->distinct()->get();
 //        var_dump($users);
+        // 添加新的查询字段
+//        $query = DB::table('users')->select('name');
+//        $users = $query->addSelect('age')->get();
+//        var_dump($users);
+        // 使用字符查询字段
+//        $users = DB::table('users')
+//            ->select(DB::raw('count(*) as user_count,age'))
+//            ->where('age','=',20)
+//            ->groupBy('age')
+//            ->get();
+//        var_dump($users);
+//        $users = DB::table('users')
+//            ->join('orders','users.id','=','orders.user_id')
+//            ->select('users.*','orders.ordersn')
+//            ->get();
+//        var_dump($users);
+//        $users = DB::table('users')
+//            ->leftJoin('orders','users.id','=','orders.user_id')
+//            ->get();
+//        dump($users);
+
+        // unions
+//        $last_age = DB::table('users')->where('age','=','20');
+//        $users = DB::table('users')->where('age','=','30')->union($last_age)->get();
+//        dump($users);
+
+        // where 比较符的查询
+//        $users = DB::table('users')->where('age','=',20)->get();
+//        dump($users);
+        // 方便的简单=
+//        $users = DB::table('users')->where('age',20)->get();
+//        dump($users);
+        // 可以传一个数组
+//        $users = DB::table('users')->where(
+//            [
+//                ['age',20],
+//                ['name','like','张%']
+//            ]
+//        )->get();
+
+        // 或者查询
+//        $users = DB::table('users')
+//            ->where('age','>',40)
+//            ->orwhere('name','like','张%')
+//            ->get();
+//        dump($users);
+
+        // 范围查询
+//        $users = DB::table('users')
+//            ->whereBetween('age',[10,30])->get();
+//        dump($users);
+
+        // 不在范围的查询
+//        $users = DB::table('users')
+//            ->whereNotBetween('age',[10,30])->get();
+//        dump($users);
+
+        // 在具体的值的范围
+//        $users = DB::table('users')
+//            ->whereIn('age',[10,20])
+//            ->get();
+//        dump($users);
+
+        // 不在具体的值的范围
+        $users = DB::table('users')
+            ->whereNotIn('age',[10,20])
+            ->get();
     }
 }
