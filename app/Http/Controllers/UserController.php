@@ -72,14 +72,30 @@ class UserController extends Controller{
 //        $users = DB::table('users')->pluck('age','name');
 //        var_dump($users);
 //        DB::table('users')->get();
-        $i = 0;
-        $j = time();
-        DB::table('users')->orderBy('id')->chunk(1000,function($users) use (&$i,&$j){
-            echo $i.':';
-            $i++;
-            echo time().PHP_EOL;
-        });
-        echo '完了';
+//        $i = 0;
+//        $j = time();
+//        DB::table('users')->orderBy('id')->chunk(1000,function($users) use (&$i,&$j){
+//            echo $i.':';
+//            $i++;
+//            echo time().PHP_EOL;
+//        });
+//        echo '完了';
         //1520259906 - 1520259878
+
+//        $count = DB::table('users')->count();
+//        // int 类型的
+//        var_dump($count);
+//        $age = DB::table('users')->max('age');
+//        var_dump($age);
+//        $avg_age = DB::table('users')->avg('age');
+//        // 浮点数
+//        var_dump($avg_age);
+
+        // 自定义查询字段
+//        $users = DB::table('users')->select('name','age as a')->get();
+//        var_dump($users);
+        // distinct只能作用在只查询单个元素时起作用
+//        $users = DB::table('users')->select('age','name')->distinct()->get();
+//        var_dump($users);
     }
 }
