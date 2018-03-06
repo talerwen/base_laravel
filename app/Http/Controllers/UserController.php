@@ -161,8 +161,73 @@ class UserController extends Controller{
 //        dump($users);
 
         // 不在具体的值的范围
+//        $users = DB::table('users')
+//            ->whereNotIn('age',[10,20])
+//            ->get();
+//        dump($users);
+
+        // 值为NULL
+//        $users = DB::table('users')
+//            ->whereNull('updated_at')
+//            ->get();
+//        dump($users);
+
+        // 值不为NULL
+//        $users = DB::table('users')
+//            ->whereNotNull('updated_at')
+//            ->get();
+//        dump($users);
+        // 把查询的字段当date进行比较
+//        $users = DB::table('users')
+//            ->whereDate('test_time','2018-03-06')
+//            ->get();
+//        dump($users);
+
+        // 把查询的字段当月来进行比较
+//        $users = DB::table('users')
+//            ->whereMonth('test_time',1)
+//            ->get();
+//        dump($users);
+
+        // 把查询的字段当月的具体的某一天来比较
+//        $users = DB::table('users')
+//            ->whereDay('created_at',6)
+//            ->get();
+//        dump($users);
+
+        // 把查询的字段当具体的某一年来比较
+//        $users = DB::table('users')
+//            ->whereYear('created_at','2018')
+//            ->get();
+//        dump($users);
+
+        // 同一个表的两个列的比较
+//        $users = DB::table('users')
+//            ->whereColumn('first_name','last_name')
+//            ->get();
+//        dump($users);
+//        $users = DB::table('users')
+//            ->whereColumn('updated_at','>','created_at')
+//            ->get();
+//        dump($users);
+//        $users = DB::table('users')
+//            ->whereColumn(
+//                [
+//                    ['first_name','=','last_name'],
+//                    ['updated_at','>','created_at']
+//                ]
+//            )
+//            ->get();
+//        dump($users);
+
+        // 查询参数组合
         $users = DB::table('users')
-            ->whereNotIn('age',[10,20])
+            ->where('name','=','张三')
+            ->orWhere(function($query){
+                $query->where('age',20)
+                    ->where('updated_at',0);
+            })
             ->get();
+        dump($users);
     }
 }
