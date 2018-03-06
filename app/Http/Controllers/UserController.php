@@ -221,11 +221,21 @@ class UserController extends Controller{
 //        dump($users);
 
         // 查询参数组合
+//        $users = DB::table('users')
+//            ->where('name','=','张三')
+//            ->orWhere(function($query){
+//                $query->where('age',20)
+//                    ->where('updated_at',0);
+//            })
+//            ->get();
+//        dump($users);
+
+        // where的exists的闭包
         $users = DB::table('users')
-            ->where('name','=','张三')
-            ->orWhere(function($query){
-                $query->where('age',20)
-                    ->where('updated_at',0);
+            ->whereExists(function($query){
+                $query->select(DB::raw(1))
+                    ->from('orders')
+                    ->whereRaw('orders.user_id = users.id');
             })
             ->get();
         dump($users);
