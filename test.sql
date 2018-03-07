@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地
+Source Server         : 我的电脑
 Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : test
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-03-06 21:37:01
+Date: 2018-03-07 15:58:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -62,13 +62,14 @@ CREATE TABLE `users` (
   `updated_at` int(11) unsigned NOT NULL COMMENT '更新时间',
   `created_at` int(11) NOT NULL COMMENT '创建时间',
   `test_time` varchar(30) NOT NULL DEFAULT '',
+  `created_date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='用户';
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '童', '童', '童文', '30', '0', '0', '');
-INSERT INTO `users` VALUES ('2', '大', '大', '张三', '20', '20181111', '20180101', '20180101');
-INSERT INTO `users` VALUES ('3', '爱的', '啊大哥', '李四', '20', '0', '0', '2018-03-06');
-INSERT INTO `users` VALUES ('4', '啊大哥', '爱的', '王五', '40', '0', '20180306', '20180306');
+INSERT INTO `users` VALUES ('9', 'tong', 'wen', '', '50', '0', '0', '', '2016-03-01');
+INSERT INTO `users` VALUES ('10', 'tong', 'wen', '', '0', '0', '0', '', '2016-03-01');
+INSERT INTO `users` VALUES ('11', '', '', 'ceshi', '0', '0', '0', '', '2016-01-03');
+INSERT INTO `users` VALUES ('12', '', '', 'ceshi', '0', '0', '0', '', '2016-01-03');
