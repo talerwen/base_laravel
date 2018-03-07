@@ -231,13 +231,89 @@ class UserController extends Controller{
 //        dump($users);
 
         // where的exists的闭包
-        $users = DB::table('users')
-            ->whereExists(function($query){
-                $query->select(DB::raw(1))
-                    ->from('orders')
-                    ->whereRaw('orders.user_id = users.id');
-            })
-            ->get();
-        dump($users);
+//        $users = DB::table('users')
+//            ->whereExists(function($query){
+//                $query->select(DB::raw(1))
+//                    ->from('orders')
+//                    ->whereRaw('orders.user_id = users.id');
+//            })
+//            ->get();
+//        dump($users);
+
+        // orderBy排序
+//        $users = DB::table('users')
+//            ->orderBy('age','asc')
+//            ->get();
+//        dump($users);
+
+        // 自动用created_at的字段作为date排序，latest为最近的，oldest为最以前的
+//        $users = DB::table('users')
+//            ->latest()
+//            ->first();
+//        dump($users);
+//        $users = DB::table('users')
+//            ->oldest()
+//            ->first();
+//        dump($users);
+
+//        $randomUser = DB::table('users')
+//            ->inRandomOrder()
+//            ->first();
+//        dump($randomUser);
+        // 使用聚合函数必须取聚合的值
+//        $users = DB::table('users')
+//            ->select(DB::raw('SUM(age) as ages'))
+//            ->groupBy('age')
+//            ->having('age','>',20)
+//            ->get();
+//        dump($users);
+
+        // 分页查询,偏移量（skip，offset），数量（take，limit）
+//        $users = DB::table('users')
+//            ->offset(0)
+//            ->limit(2)
+//            ->get();
+//        dump($users);
+
+        // 插入
+//        $re_insert = DB::table('users')->insert(
+//            ['first_name'=>'tong','last_name'=>'wen','updated_at'=>0,'created_at'=>0,'created_date'=>'2016-03-01']
+//        );
+        // $re_insert为true或者false
+//        dump($re_insert);
+
+//        $insert_id = DB::table('users')->insertGetId(
+//            ['first_name'=>'tong','last_name'=>'wen','updated_at'=>0,'created_at'=>0,'created_date'=>'2016-03-01']
+//        );
+
+//        $re_increment = DB::table('users')->increment('age',2);
+//        // $re_increment为最后一条插入的id
+//        dump($re_increment);
+        // 同时修改多个字段
+//        $re_increment = DB::table('users')->increment('age',3,['name'=>'add_age']);
+//        dump($re_increment);
+
+        // 删除
+//        $re_delete = DB::table('users')->delete();
+
+        // 开启事务
+//        DB::beginTransaction();
+//        // 悲观锁
+//        DB::table('users')->where('id','=',9)->sharedLock()->get();
+//        sleep(30);
+//        DB::commit();
+
+        // 使用模型
+//        $users = \App\User::all();
+//        foreach($users as $user){
+//            echo $user->age.'<br>';
+//        }
+        $users = new \App\User;
+        $users->name = 'ceshi';
+        $users->updated_at = 0;
+        $users->created_at = 0;
+        $users->created_date = '2016-01-03';
+        $re = $users->save();
+        dump($re);
     }
 }
