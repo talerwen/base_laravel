@@ -308,12 +308,42 @@ class UserController extends Controller{
 //        foreach($users as $user){
 //            echo $user->age.'<br>';
 //        }
-        $users = new \App\User;
-        $users->name = 'ceshi';
-        $users->updated_at = 0;
-        $users->created_at = 0;
-        $users->created_date = '2016-01-03';
-        $re = $users->save();
-        dump($re);
+//        $users = new \App\User;
+//        $users->name = 'ceshi';
+//        $users->updated_at = 0;
+//        $users->created_at = 0;
+//        $users->created_date = '2016-01-03';
+//        $re = $users->save();
+//        dump($re);
+//        $users = \App\User::where('id','>',1)
+//            ->get();
+//        foreach($users as $user){
+//            echo $user.'<br>';
+//        }
+//        $users = $users->reject(function($user){
+//            return $user->name;
+//        });
+//        foreach($users as $user){
+//            echo $user.'<br>';
+//        }
+//        $users = \App\User::find(1);
+//        var_dump($users->name);
+//        $user = \App\User::where('age',20)->first();
+//        var_dump($user);
+//        $users = \App\User::find([1,2,3]);
+//        var_dump($users);
+//        $users = \App\User::whereIn('age',[20,30]);
+//            ->get();
+//        $users = $users->where('id',2);
+//        $users = $users->get();
+////        var_dump($users);exit;
+////        var_dump($users);exit;
+//        foreach($users as $user){
+//            echo $user.'<br>';
+//        }
+//        $count = \App\User::count();
+//        var_dump($count);
+//        $max = \App\User::max('age');
+//        var_dump($max);
     }
 }
