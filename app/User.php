@@ -15,4 +15,8 @@ class User extends Model
     {
         return $this->hasOne('App\Phone');
     }
+    public function post()
+    {
+        return $this->hasOne('App\Post')->withDefault();
+    }
 }

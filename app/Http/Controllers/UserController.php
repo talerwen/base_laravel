@@ -355,7 +355,9 @@ class UserController extends Controller{
 //        $update = \App\User::where('age',20)
 //            ->update(['name'=>'name_age']);
 //        var_dump($update);
-        $phone = \App\User::find(9)->phone;
-        var_dump($phone->phone);
+//        $phone = \App\User::find(9)->phone;
+//        var_dump($phone->phone);
+        $post = \App\User::find(4)->post;
+        var_dump($post);
     }
 }
