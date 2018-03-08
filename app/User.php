@@ -11,5 +11,8 @@ class User extends Model
     protected $primaryKey = 'id';
     const CREATED_AT = 'creation_date';
     const UPDATED_AT = 'last_update';
-
+    public function phone()
+    {
+        return $this->hasOne('App\Phone');
+    }
 }

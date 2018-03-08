@@ -345,5 +345,17 @@ class UserController extends Controller{
 //        var_dump($count);
 //        $max = \App\User::max('age');
 //        var_dump($max);
+
+//        $user = \App\User::find(9);
+//        $user->name = 'shezhiguole';
+//        $save = $user->save();
+//        var_dump($save);
+
+        // 返回改变的个数
+//        $update = \App\User::where('age',20)
+//            ->update(['name'=>'name_age']);
+//        var_dump($update);
+        $phone = \App\User::find(9)->phone;
+        var_dump($phone->phone);
     }
 }
