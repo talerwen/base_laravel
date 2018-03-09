@@ -357,7 +357,33 @@ class UserController extends Controller{
 //        var_dump($update);
 //        $phone = \App\User::find(9)->phone;
 //        var_dump($phone->phone);
-        $post = \App\User::find(4)->post;
-        var_dump($post);
+//        $post = \App\User::find(4)->post;
+//        var_dump($post);
+        // 如果没有匹配获取默认的空模型并赋予默认属性
+//        $users = \App\User::all();
+//        foreach($users as $user){
+//            var_dump($user->post->info);
+//        }
+//        $orders = \App\User::find(2)->orders();
+//        dd($orders);
+//        var_dump($orders);
+//        foreach($orders as $order){
+//            //
+//            dd($order);
+//        }
+//        $orders = \App\User::find(2)->orders()->where('ordersn','dagadgda')->get();
+//        dd($orders);
+//        $order = \App\order::find(3);
+//        echo $order->user->name;
+//        $users = \App\User::find(2);
+//        dump($users);exit;
+//        dump($users->roles);exit;
+//        foreach($user->roles as $role){
+//            var_dump($role);
+//        }
+        $user = \App\User::find(2);
+        foreach($user->roles as $role){
+            echo $role->pivot->role_id;
+        }
     }
 }

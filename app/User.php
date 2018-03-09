@@ -17,6 +17,14 @@ class User extends Model
     }
     public function post()
     {
-        return $this->hasOne('App\Post')->withDefault();
+        return $this->hasOne('App\Post')->withDefault(['info'=>'18888888888']);
+    }
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role','role_user','user_id','role_id');
     }
 }
